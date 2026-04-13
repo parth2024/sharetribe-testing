@@ -323,7 +323,8 @@ if (cspEnabled) {
   });
 }
 
-const server = app.listen(PORT, () => {
+// We use 0.0.0.0 explicitly to ensure it binds to all interfaces in the container
+const server = app.listen(PORT, '0.0.0.0', () => {
   const mode = dev ? 'development' : 'production';
   console.log(`Listening to port ${PORT} in ${mode} mode`);
   if (dev) {
